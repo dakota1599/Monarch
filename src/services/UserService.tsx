@@ -6,7 +6,7 @@ export default class UserService{
 
     //For creating a user.
     public CreateUser(user: IUser){
-        return http.post('/user', user);
+        return http.post('user', user);
     }
     //For logging a user in
     public Login(cred: ILogCreds){

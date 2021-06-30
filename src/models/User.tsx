@@ -1,3 +1,6 @@
+import CheckIn from "./CheckIn";
+import Meeting from "./Meeting";
+import Member from "./Member";
 
 export interface IUser{
 
@@ -5,7 +8,8 @@ export interface IUser{
     Name: string;
     UserName: string;
     Password: string;
-    CheckedIn: boolean;
+    Meetings?: Meeting[];
+    Members?: Member[];
 
 }
 

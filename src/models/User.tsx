@@ -13,7 +13,8 @@ export interface IUser{
 
 }
 
-export interface ILogCreds{
-    UserName: string;
-    Password: string;
+export class LogCreds{
+
+    constructor(public UserName: string, public Password: string){
+    }
 }

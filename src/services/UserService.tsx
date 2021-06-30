@@ -1,15 +1,15 @@
 import http from './../util/http';
-import {IUser, ILogCreds} from './../models/User';
+import {IUser, LogCreds} from './../models/User';
 
 
 export default class UserService{
 
     //For creating a user.
-    public CreateUser(user: IUser){
+    public static CreateUser(user: IUser){
         return http.post('user', user);
     }
     //For logging a user in
-    public Login(cred: ILogCreds){
+    public static Login(cred: LogCreds){
         return http.post('user/log', cred);
     }
 

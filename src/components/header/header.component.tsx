@@ -1,9 +1,24 @@
+import Cookies from "js-cookie";
+
 const HeaderComponent = (props: {
   website: { name: string; path: string };
   links: { name: string; path: string }[];
   className: string;
 }) => {
-  console.log(props.links);
+
+
+  //This decides if it shows the login or logout buttons.
+  var log =
+    Cookies.get("username") === undefined ? (
+      <a href="/">
+        <span className="glyphicon glyphicon-log-in"></span> Login
+      </a>
+    ) : (
+      <a href="/" onClick={() => {Cookies.remove("username"); Cookies.remove("name"); Cookies.remove("userId")}}>
+        <span className="glyphicon glyphicon-log-in"></span> Log out
+      </a>
+    );
+  
   return (
     <nav className={"navbar " + props.className}>
       <div className="container-fluid">
@@ -29,6 +44,11 @@ const HeaderComponent = (props: {
                 <a href={item.path}>{item.name}</a>
               </li>
             ))}
+          </ul>
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+              {log}
+            </li>
           </ul>
         </div>
       </div>

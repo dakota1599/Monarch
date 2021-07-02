@@ -29,3 +29,22 @@ code {
   background-color: black !important;
   color: white;
 }
+
+.mon-table{
+  border: 1px solid lightgrey;
+}
+
+.mon-table tbody{
+  height: 20em;
+  overflow: auto;
+}
+
+.mon-table tr{
+  transition: .4s;
+  height: 4em;
+}
+
+.mon-table tr:hover{
+  cursor: pointer;
+  background-color: $primary-color;
+}

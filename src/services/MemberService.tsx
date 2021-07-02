@@ -14,6 +14,11 @@ export default class MemberService{
         return http.get(`member/${id}`);
     }
 
+    //Gets list of members by user id
+    public static GetMemberList(id: any){
+        return http.get(`member/list/${id}`);
+    }
+
     //Logs a member in
     public static LogIn(creds:LogCreds){
         return http.post("member/log", creds);

@@ -1,20 +1,18 @@
 import React, { useEffect, useRef } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./pages/home.page";
 import HeaderComponent from "./components/header/header.component";
-import Cookies from 'js-cookie';
 import CurrentUser from "./models/CurrentUser";
 
 function App() {
 
   const currentUser = useRef(
     new CurrentUser(
-      Cookies.get("userId"),
-      Cookies.get("username"),
-      Cookies.get("name"),
-      Cookies.get("admin")
+      window.localStorage.getItem("userId"),
+      window.localStorage.getItem("username"),
+      window.localStorage.getItem("name"),
+      window.localStorage.getItem("admin")
     )
   );
 

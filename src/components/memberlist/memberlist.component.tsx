@@ -19,7 +19,7 @@ const MemberList = (props: {userId: number}) => {
   
   useEffect(()=>{
     GetList(props.userId);
-  }, [])
+  }, []);
 
   //Gets the list initially
   async function GetList(id: number) {
@@ -29,13 +29,14 @@ const MemberList = (props: {userId: number}) => {
   }
 
   async function PushUpdate(id: number){
-    if(name.current == "" || userName.current == ""){
+    if(name.current === "" || userName.current === ""){
       alert("Name and Username must not be empty.");
       return;
     }
     
 
   }
+
 
   //For altering a member.
   async function AlterMember(del: boolean, id: number){
@@ -63,20 +64,25 @@ const MemberList = (props: {userId: number}) => {
       //Set modification vars to initial values.
       name.current = list[id].name;
       userName.current = list[id].userName;
+      console.log(`${name.current} ${userName.current}`)
       setEdit(
-        <div className="input-group" style={{ margin: "auto" }}>
+        <div className="">
+          <label htmlFor="name">
+            Member Name:
+          </label>
           <input
+            id="name"
             className="modify-input"
             type="text"
             placeholder={list[id].name}
-            defaultValue={list[id].name}
             onChange={(e) => name.current = e.target.value}
           />
+          <label htmlFor="username">Member Username:</label>
           <input
+            id="username"
             className="modify-input"
             type="text"
             placeholder={list[id].userName}
-            defaultValue={list[id].userName}
             onChange={(e) => userName.current = e.target.value}
           />
           <button
@@ -86,13 +92,19 @@ const MemberList = (props: {userId: number}) => {
           >
             Save
           </button>
+          &nbsp;
+          <button
+            type="button"
+            className="btn"
+            onClick={()=> setEdit(undefined)}
+          >
+            Cancel
+          </button>
         </div>
       );
     }
 
   }
-
-  console.log(list);
 
   if (list !== undefined) {
     return (

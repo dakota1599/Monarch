@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import UserService from "../../services/UserService";
 import MemberService from "../../services/MemberService";
-import Cookies from "js-cookie";
 import { LogCreds } from "../../models/User";
 import "./log.style.scss";
 
@@ -42,10 +41,10 @@ const Log = () => {
     //This is used to validate if server validation was passed.
     function validate(creds: any, admin: string){
         if(creds !== false){
-            Cookies.set('username', creds.userName);
-            Cookies.set('name', creds.name);
-            Cookies.set('userId',creds.id);
-            Cookies.set('admin', admin);
+            window.localStorage.setItem('username', creds.userName);
+            window.localStorage.setItem('name', creds.name);
+            window.localStorage.setItem('userId',creds.id);
+            window.localStorage.setItem('admin', admin);
             window.location.reload();
         }else{
             setLogStatus(<span className="text-danger">Username or password is incorrect</span>);

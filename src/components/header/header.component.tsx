@@ -1,4 +1,4 @@
-import Cookies from "js-cookie";
+
 
 const HeaderComponent = (props: {
   website: { name: string; path: string };
@@ -9,12 +9,12 @@ const HeaderComponent = (props: {
 
   //This decides if it shows the login or logout buttons.
   var log =
-    Cookies.get("username") === undefined ? (
+    window.localStorage.getItem("username") === null ? (
       <a href="/">
         <span className="glyphicon glyphicon-log-in"></span> Login
       </a>
     ) : (
-      <a href="/" onClick={() => {Cookies.remove("username"); Cookies.remove("name"); Cookies.remove("userId")}}>
+      <a href="/" onClick={() => {window.localStorage.clear()}}>
         <span className="glyphicon glyphicon-log-in"></span> Log out
       </a>
     );

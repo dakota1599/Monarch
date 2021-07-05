@@ -6,7 +6,8 @@ import CurrentUser from '../models/CurrentUser';
 const HomePage = (props: {currentUser: CurrentUser}) => {
 
 
-    if(props.currentUser.username === undefined){
+    if(props.currentUser.username === null){
+      document.title=`Welcome to Monarch`;
       return (
         <div>
           <div className="title">
@@ -19,6 +20,7 @@ const HomePage = (props: {currentUser: CurrentUser}) => {
       );
   
     }else{
+      document.title=`${props.currentUser.name}'s Dashboard`;
       return(
         <Dashboard currentUser={props.currentUser}/>
       );

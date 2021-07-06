@@ -22,8 +22,9 @@ function App() {
 
   return (
     <div>
-      <HeaderComponent className="mon-header" website={{name: "Monarch", path: "/"}} links={[{name: "About", path: "/about"}, {name: "Reports", path: "/reports"} ]} />
+      
       <Router>
+      <HeaderComponent className="mon-header" website={{name: "Monarch", path: "/"}} links={[{name: "About", path: "/about"}, {name: "Reports", path: "/reports"} ]} />
         <Switch>
           <Route exact path="/">
             <HomePage currentUser={currentUser.current}/>

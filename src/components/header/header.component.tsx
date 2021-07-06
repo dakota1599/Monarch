@@ -1,4 +1,4 @@
-
+import { NavLink } from "react-router-dom";
 
 const HeaderComponent = (props: {
   website: { name: string; path: string };
@@ -41,7 +41,7 @@ const HeaderComponent = (props: {
           <ul className="nav navbar-nav">
             {props.links.map((item, index) => (
               <li key={index}>
-                <a href={item.path}>{item.name}</a>
+                <NavLink to={item.path}>{item.name}</NavLink>
               </li>
             ))}
           </ul>

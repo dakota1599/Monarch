@@ -12,7 +12,9 @@ function App() {
       window.localStorage.getItem("userId"),
       window.localStorage.getItem("username"),
       window.localStorage.getItem("name"),
-      window.localStorage.getItem("admin")
+      window.localStorage.getItem("admin"),
+      window.localStorage.getItem("orgId"),
+      window.localStorage.getItem("org")
     )
   );
 

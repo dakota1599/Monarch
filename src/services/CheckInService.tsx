@@ -4,13 +4,17 @@ import CheckIn from "../models/CheckIn";
 export default class CheckInService{
 
     //Creates a checkin
-    public CreateCheckIn(check:CheckIn){
+    public static CreateCheckIn(check:CheckIn){
         return http.post("checkin", check);
     }
 
     //Deletes a checkin
-    public DeleteCheckIn(id:any){
+    public static DeleteCheckIn(id:any){
         return http.delete(`checkin/${id}`);
+    }
+
+    public static GetCheckInsList(meetId: any){
+        return http.get(`checkin/meeting/${meetId}`);
     }
 
 }

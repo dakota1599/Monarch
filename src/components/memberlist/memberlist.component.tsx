@@ -8,7 +8,7 @@ import "./memberlist.style.scss";
 
 
 
-const MemberList = (props: {userId: number}) => {
+const MemberList = (props: {userId: number, org: string}) => {
 
   const [list, setList] = useState<Member[]>([]);
   const [edit, setEdit] = useState<JSX.Element>();
@@ -109,7 +109,7 @@ const MemberList = (props: {userId: number}) => {
   if (list !== undefined) {
     return (
       <div>
-        <h1>Your Members</h1>
+        <h3>{props.org} Members</h3>
         <table className="table mon-table">
           <tbody>
             {list.map((member: Member, index) => (
@@ -117,10 +117,14 @@ const MemberList = (props: {userId: number}) => {
                 <td>{member.name}</td>
                 <td>{member.userName}</td>
                 <td>
-                  <button type="button" className="btn btn-primary" onClick={() => AlterMember(false, index)}>Modify</button>
+                  {member.admin ? 
+                    "(Admin)"
+                    :
+                    <button type="button" className="btn btn-primary" onClick={() => AlterMember(false, index)}>Modify</button>
+                  }
                 </td>
                 <td>
-                  <button type="button" className="btn btn-danger" onClick={() => AlterMember(true, member.id)}>Delete</button>
+                  {member.admin ? "" : <button type="button" className="btn btn-danger" onClick={() => AlterMember(true, member.id)}>Delete</button>}
                 </td>
               </tr>
             ))}

@@ -1,6 +1,6 @@
 import http from "../util/http";
 import Member from "../models/Member";
-import { LogCreds } from "../models/User";
+import LogCreds from "../models/LogCreds";
 
 export default class MemberService{
 
@@ -20,7 +20,7 @@ export default class MemberService{
     }
 
     //Logs a member in
-    public static LogIn(creds:LogCreds){
+    public static Login(creds:LogCreds){
         return http.post("member/log", creds);
     }
 

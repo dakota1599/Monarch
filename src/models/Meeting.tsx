@@ -1,9 +1,10 @@
 
 export default interface Meeting{
 
-    Id?:any;
-    Name: string;
-    OwnerID: any;
-    Owner: string;
+    id?:any;
+    name: string;
+    ownerID: any;
+    owner: string;
+    orgID: any;
 
 }

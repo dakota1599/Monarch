@@ -33,9 +33,9 @@ const HeaderComponent = (props: {
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a className="navbar-brand" href={props.website.path}>
+          <NavLink className="navbar-brand" to={props.website.path}>
             {props.website.name}
-          </a>
+          </NavLink>
         </div>
         <div className="collapse navbar-collapse" id="myNavbar">
           <ul className="nav navbar-nav">

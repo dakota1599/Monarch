@@ -5,6 +5,7 @@ export default interface CheckIn{
     meetingID: any;
     meetingName: string;
     memberID: any;
+    memberName: string;
     checkedIn: boolean;
 
 }  

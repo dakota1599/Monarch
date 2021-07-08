@@ -1,4 +1,5 @@
 import CheckIn from "./CheckIn";
+import Meeting from "./Meeting";
 
 export default interface Member{
 
@@ -6,8 +7,10 @@ export default interface Member{
     name: string;
     userName: string;
     password: string;
-    accountOwnerID: any;
-    AccountOwner: string;
+    orgID: any;
+    org: string;
+    admin: boolean;
+    meetings?: Meeting[];
     checkIns?: CheckIn[];
 
 }

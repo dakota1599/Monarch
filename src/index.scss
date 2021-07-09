@@ -34,14 +34,14 @@ code {
   border: 1px solid lightgrey;
 }
 
-.mon-table tbody{
-  height: 20em;
-  overflow: auto;
-}
-
 .mon-table tr{
   transition: .4s;
   height: 4em;
+}
+
+.mon-table-container{
+  max-height:20em;
+  overflow:auto;
 }
 
 .mon-table tr:hover{

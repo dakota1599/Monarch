@@ -1,10 +1,7 @@
 
-export default interface Meeting{
+export default class Meeting{
 
-    id?:any;
-    name: string;
-    ownerID: any;
-    owner: string;
-    orgID: any;
+
+    constructor(public name: string, public ownerID: any, public owner: string, public orgID: any, public id?: any){}
 
 }

@@ -8,7 +8,7 @@ import "./memberlist.style.scss";
 
 
 
-const MemberList = (props: {userId: number, org: string}) => {
+const MemberList = (props: {userId: number, org: string, selectMember: any}) => {
 
   const [list, setList] = useState<Member[]>([]);
   const [edit, setEdit] = useState<JSX.Element>();
@@ -110,10 +110,11 @@ const MemberList = (props: {userId: number, org: string}) => {
     return (
       <div>
         <h3>{props.org} Members</h3>
+        <div className="mon-table-container">
         <table className="table mon-table">
           <tbody>
             {list.map((member: Member, index) => (
-              <tr key={member.id}>
+              <tr key={member.id} onClick={() => {props.selectMember(member)}}>
                 <td>{member.name}</td>
                 <td>{member.userName}</td>
                 <td>
@@ -130,6 +131,7 @@ const MemberList = (props: {userId: number, org: string}) => {
             ))}
           </tbody>
         </table>
+        </div>
         {edit}
       </div>
     );

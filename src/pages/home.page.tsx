@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Log from '../components/log/log.component';
 import Dashboard from '../components/dashboard/dashboard.component';
 import './../styles/home.scss';

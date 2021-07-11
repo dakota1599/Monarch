@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./pages/home.page";
 import HeaderComponent from "./components/header/header.component";
 import CurrentUser from "./models/CurrentUser";
+import MeetingStartPage from "./pages/meetingStart.page";
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/">
             <HomePage currentUser={currentUser.current}/>
           </Route>
+          <Route exact path="/start/:id" component={MeetingStartPage}/>
         </Switch>
       </Router>
     </div>

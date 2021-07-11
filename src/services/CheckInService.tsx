@@ -17,4 +17,8 @@ export default class CheckInService{
         return http.get(`checkin/meeting/${meetId}`);
     }
 
+    public static AlterStatus(id: any){
+        return http.put(`checkin/${id}`);
+    }
+
 }

@@ -1,7 +1,6 @@
 import MemberService from "../../services/MemberService";
 import React,{ useEffect, useState, useRef } from "react";
 import Member from "../../models/Member";
-import CheckIn from "../../models/CheckIn";
 
 import "./memberlist.style.scss";
 

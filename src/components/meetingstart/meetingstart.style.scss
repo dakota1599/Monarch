@@ -1,0 +1,26 @@
+$primary-color: #FFD700;
+
+.item{
+    transition: .4s;
+}
+
+.item:hover{
+    cursor: pointer;
+    background-color: $primary-color !important;
+}
+
+.body{
+    margin:auto;
+}
+
+.body h2, .body h4{
+    text-align: center;
+}
+
+.members{
+    margin:auto;
+    width: 25%;
+    text-align: center;
+    max-height: 20em;
+    overflow:auto;
+}

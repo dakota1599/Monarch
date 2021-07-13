@@ -162,6 +162,7 @@ const MeetingList = forwardRef(
       );
     } else {
       return (
+        
         <div>
           <h3>
             <button
@@ -187,16 +188,19 @@ const MeetingList = forwardRef(
             )}
             
             &nbsp;
-
+            {props.userId === currentMeeting?.ownerID ? 
             <NavLink
               className="btn btn-success"
               to={`/start/${currentMeeting?.id}`}
             >
               Start
             </NavLink>
+            : ""
+    }
             
             &nbsp;
 
+            {props.userId === currentMeeting?.ownerID ? 
             <button
               type="button"
               className="btn btn-primary"
@@ -222,7 +226,10 @@ const MeetingList = forwardRef(
             >
               {modifyMeeting ? "Save" : "Modify"}
             </button>
+            : ""
+    }
             &nbsp;
+            {props.userId === currentMeeting?.ownerID ?
             <button
               type="button"
               className="btn btn-danger"
@@ -239,6 +246,8 @@ const MeetingList = forwardRef(
             >
               Delete
             </button>
+            : ""
+    }
           </h3>
           <div className="mon-table-container">
             <table className="table mon-table">

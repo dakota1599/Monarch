@@ -10,11 +10,11 @@ function App() {
 
   const currentUser = useRef(
     new CurrentUser(
-      window.localStorage.getItem("userId"),
+      Number(window.localStorage.getItem("userId")),
       window.localStorage.getItem("username"),
       window.localStorage.getItem("name"),
-      window.localStorage.getItem("admin"),
-      window.localStorage.getItem("orgId"),
+      window.localStorage.getItem("admin") === "true"? true: false,
+      Number(window.localStorage.getItem("orgId")),
       window.localStorage.getItem("org")
     )
   );

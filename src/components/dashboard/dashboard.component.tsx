@@ -32,12 +32,13 @@ const Dashboard = (props: {currentUser: CurrentUser}) => {
         }
     }
 
+
     return(
         <div id="body" className="container">
             <h1>{props.currentUser.name}'s Dashboard</h1>
             <div className="row">
                 <div className="col-sm-6">
-                    <MemberList userId={props.currentUser.orgId} org={props.currentUser.org} selectMember={addMember}/>
+                    <MemberList orgId={props.currentUser.orgId} admin={props.currentUser.admin}  userId={props.currentUser.id} org={props.currentUser.org} selectMember={addMember}/>
                 </div>
                 <div className="col-sm-6">
                     <MeetingList ref={ref} orgId={props.currentUser.orgId} userId={props.currentUser.id} chosenMeeting={(meeting: Meeting) => {setCurrentMeeting(meeting)}}/>

@@ -7,7 +7,7 @@ import "./memberlist.style.scss";
 
 
 
-const MemberList = (props: {userId: number, org: string, selectMember: any}) => {
+const MemberList = (props: {userId: number, org: string, selectMember: any, admin: boolean, orgId: number}) => {
 
   const [list, setList] = useState<Member[]>([]);
   const [edit, setEdit] = useState<JSX.Element>();
@@ -17,7 +17,7 @@ const MemberList = (props: {userId: number, org: string, selectMember: any}) => 
   var userName = useRef("");
   
   useEffect(()=>{
-    GetList(props.userId);
+    GetList(props.orgId);
   }, []);
 
   //Gets the list initially
@@ -105,7 +105,9 @@ const MemberList = (props: {userId: number, org: string, selectMember: any}) => 
 
   }
 
+
   if (list !== undefined) {
+
     return (
       <div>
         <h3>{props.org} Members</h3>
@@ -114,17 +116,17 @@ const MemberList = (props: {userId: number, org: string, selectMember: any}) => 
           <tbody>
             {list.map((member: Member, index) => (
               <tr key={member.id} onClick={() => {props.selectMember(member)}}>
-                <td>{member.name}</td>
+                <td>{member.name} {member.id === props.userId ? "(You)": ""} {member.admin ? " (Admin)" : ""}</td>
                 <td>{member.userName}</td>
                 <td>
-                  {member.admin ? 
-                    "(Admin)"
-                    :
+                  {(member.admin === false && (props.admin || member.id === props.userId)) ? 
                     <button type="button" className="btn btn-primary" onClick={() => AlterMember(false, index)}>Modify</button>
+                    :
+                    ""
                   }
                 </td>
                 <td>
-                  {member.admin ? "" : <button type="button" className="btn btn-danger" onClick={() => AlterMember(true, member.id)}>Delete</button>}
+                  {(props.admin === false || member.id === props.userId || member.admin) ? "" : <button type="button" className="btn btn-danger" onClick={() => AlterMember(true, member.id)}>Delete</button>}
                 </td>
               </tr>
             ))}

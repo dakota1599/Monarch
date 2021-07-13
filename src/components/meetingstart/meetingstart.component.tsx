@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import CheckIn from "../../models/CheckIn";
 import Meeting from "../../models/Meeting";
 import CheckInService from "../../services/CheckInService";
@@ -12,6 +12,7 @@ const MeetingStart = (props: { meetingId: any }) => {
   const [meeting, setMeeting] = useState<Meeting>();
   //Quorum reference
   const quorum = useRef(0);
+  let history = useHistory();
 
   //Function for getting the meeting
   async function getMeeting(id: number) {
@@ -20,7 +21,7 @@ const MeetingStart = (props: { meetingId: any }) => {
 
     //If meet is false, redirect to home
     if (!meet) {
-      window.location.href = "/";
+      history.push("/");
       return;
     }
     //Sets the meeting
